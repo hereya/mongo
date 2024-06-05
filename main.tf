@@ -15,6 +15,17 @@ terraform {
 provider "random" {}
 provider "docker" {}
 
+variable "port" {
+  type    = number
+  default = 27017
+}
+
+variable "network_mode" {
+  type    = string
+  default = "bridge"
+}
+
+
 resource "random_pet" "dbname" {}
 
 resource "docker_image" "mongo" {
@@ -27,13 +38,18 @@ resource "docker_container" "mongo" {
   name  = random_pet.dbname.id
   ports {
     internal = 27017
-    external = 27017
+    external = var.port
   }
 }
 
+locals {
+  port = var.network_mode == "host" ?  27017 : docker_container.mongo.ports[0].external
+}
+
+
 output "MONGO_URL" {
   sensitive   = true
-  value       = "mongodb://localhost:${docker_container.mongo.ports[0].external}/${random_pet.dbname.id}"
+  value       = "mongodb://localhost:${local.port}/${random_pet.dbname.id}"
 }
 
 output "MONGO_DBNAME" {
