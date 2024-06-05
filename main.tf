@@ -47,12 +47,12 @@ locals {
 }
 
 
-output "MONGO_URL" {
+output "mongoUrl" {
   sensitive   = true
   value       = "mongodb://localhost:${local.port}/${random_pet.dbname.id}"
 }
 
-output "MONGO_DBNAME" {
+output "mongoDbname" {
   sensitive   = true
   value       = random_pet.dbname.id
 }
