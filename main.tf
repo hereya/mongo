@@ -2,12 +2,12 @@ terraform {
   required_providers {
     docker = {
       source  = "registry.terraform.io/kreuzwerker/docker"
-      version = "2.16.0"
+      version = "~>3.0"
     }
 
     random = {
       source  = "registry.terraform.io/hashicorp/random"
-      version = "3.2.0"
+      version = "~>3.5"
     }
   }
 }
