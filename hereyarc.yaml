@@ -1,2 +1,5 @@
 iac: terraform
 infra: local
+onDeploy:
+  pkg: hereya/aws-documentdb
+  version: ""
