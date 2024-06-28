@@ -30,7 +30,7 @@ resource "random_pet" "dbname" {}
 
 resource "docker_image" "mongo" {
   name         = "mongo:latest"
-  keep_locally = false
+  keep_locally = true
 }
 
 resource "docker_container" "mongo" {
