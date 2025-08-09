@@ -4,3 +4,6 @@ description: "A [hereya](https://github.com/hereya/hereya-cli) package for deplo
 visibility: public # can be public or private
 iac: terraform
 infra: local # can be aws, azure, gcp, local
+onDeploy:
+  pkg: hereya/aws-documentdb
+  version: ""
