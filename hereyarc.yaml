@@ -1,5 +1,5 @@
 name: mongo
-version: 0.0.1
+version: 0.0.2
 description: "A [hereya](https://github.com/hereya/hereya-cli) package for deploying mongodb into a docker container"
 visibility: public # can be public or private
 iac: terraform
